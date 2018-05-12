@@ -1,0 +1,14 @@
+image{
+    display: block;
+    width: 100%;
+}
+
+video{
+    width: 100%;
+
+}
+page{
+    /* 每个页面默认的最外层的盒子 */
+    font-size: 32rpx;
+    line-height: 1.5;
+}

@@ -21,6 +21,7 @@
     pages  
         index  首页 wxml => html wxss => css
         log 纪录 不必需  
+        rpx 逻辑分辨率 1rpx = 2px  用rpx进行设备适应
     根目录下  
     配置文件package.json 有多少个page都要在这里注册  
     下面可以改navigationbar 导航条    

@@ -1,0 +1,26 @@
+.hero.white{
+    background: #fff;
+
+}
+.hero .content{
+    padding-top: 20%;
+}
+.hero .content.centered{
+    text-align: center;
+}
+.hero .sub-header{
+    font-size: 32rpx;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 8rpx;
+    color: rgba(0, 0, 0, .85)
+}
+.hero .header{
+    font-size: 72rpx;
+    font-weight: bold;
+    margin: 0 12% 8rpx;
+}
+.hero .description{
+    margin-bottom: 32rpx;
+    padding: 0 12%;
+}
