@@ -21,7 +21,15 @@
     pages  
         index  首页 wxml => html wxss => css
         log 纪录 不必需  
-        rpx 逻辑分辨率 1rpx = 2px  用rpx进行设备适应
+        rpx 逻辑分辨率 用rpx进行设备自适应  
+        pt 逻辑分辨率 大小和屏幕尺寸有关系，可以理解为长度和视觉单位  
+        px指物理分辨率，和屏幕尺寸没有关系。  
+        iphone6 2个px构成一个pt  
+        iphone6下 1px = 1rpx = 0.5pt  
+        iphone6 pt 375*667 px 750*1334    
+        使用rpx 小程序会自动在不同的分辨率下进行转换，而使用px为单位不会
+        不是所有单位都适合使用rpx
     根目录下  
-    配置文件package.json 有多少个page都要在这里注册  
+    配置文件package.json 有多少个page都要在这里注册    
+    小程序页面层级人为限制为五级
     下面可以改navigationbar 导航条    
