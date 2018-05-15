@@ -1,13 +1,12 @@
-// pages/posts/post.js
 const postData = require('../../data/posts-data');
-console.log(postData);
+// console.log(postData);
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    posts_content: {}
+    // posts_content: {}
   },
 
   /**
@@ -20,5 +19,12 @@ Page({
       posts_content: postData.postList
     });
 
+  },
+  articletap(e){
+    // console.log(e.currentTarget.dataset.postid);
+    const postid = e.currentTarget.dataset.postid;
+    wx.navigateTo({
+      url:`posts-detail/posts-detail?id=${postid}`
+    });
   }
 })

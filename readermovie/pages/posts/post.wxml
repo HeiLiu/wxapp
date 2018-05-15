@@ -15,7 +15,8 @@
     <block class="block" wx:for="{{posts_content}}" wx:key="id" wx:for-item="item">
             <!-- wx:for-item="item" 可以去掉 默认就是 在后续也可以使用item wx:key 指代子元素的序号 -->
             <!-- template -->
-        <template is="postItem" data="{{item}}"/>
+            <!-- 如此 {{...item}} 在模板中就不需要再每一项加item -->
+        <template is="postItem" data="{{...item}}"/>
     </block>
 
 </view>
