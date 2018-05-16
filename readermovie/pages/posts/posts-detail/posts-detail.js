@@ -17,62 +17,46 @@ Page({
    */
   onLoad: function (options) {
     var postid = options.id;
-    console.log(postData.postList[postid]);
-    // postData = postData.postList[postid];
+    this.data.currentPostId = postid;
+    // 如果在onload方法中，不是异步的去执行一个数据绑定，则不需要使用this.setData方法
+    // 只需要对this.data赋值
     // this.data.postData = postData.postList[postid];
-    // console.log(postData);
+    
     this.setData({
-      postData: postData.postList[postid]
+      postData:postData.postList[postid]
     });
-    console.log(this.data.postData);
+    // console.log(this.data.postData);
+    // let postCollected = {
+    //   1:true,
+    //   2:false,
+    //   3:true
+    // }
+    // 在onload的时候读取文章的收藏状态 即初始化收藏图片状态
+    var postsCollected = wx.getStorageSync('posts_collected')
+    // wx.setStorageSync();
+    if (postsCollected) {
+      var postCollected = postsCollected[postid]
+      this.setData({
+        collected: postCollected
+      })
+    } else {
+      var postsCollected = {};
+      postsCollected[postid] = false;
+      wx.setStorageSync('posts_collected', postsCollected);
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 收藏按钮 每次点击都是进行状态的切换 做取反操作
+  onCollectionTap(event) {
+    var postsCollected = wx.getStorageSync('posts_collected');
+    var postCollected = postsCollected[this.data.currentPostId];
+    // // 收藏状态切换
+    postCollected = !postCollected;
+    postsCollected[this.data.currentPostId] = postCollected;
+    // 更新了文章是否收藏的缓存值
+    wx.setStorageSync('posts_collected', postsCollected); 
+    // 更新数据绑定变量，从而实现切换图片
+    this.setData({
+      collected: postCollected
+    });
   }
 })
