@@ -71,10 +71,6 @@
     width: 90rpx;
     height: 90rpx;
 }
-
-.share {
-    margin-left: 30rpx;
-}
 .line{
     width: 660rpx;
     height: 1px;

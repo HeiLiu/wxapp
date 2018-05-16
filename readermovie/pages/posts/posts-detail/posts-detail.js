@@ -9,9 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    postData:{
 
-    }
   },
 
   /**
@@ -19,12 +17,14 @@ Page({
    */
   onLoad: function (options) {
     var postid = options.id;
-    // console.log(postid);
-    // this.setData({
-    //   postData : postData
-    // });
-    this.data.postData = postData;
-    console.log(postData);
+    console.log(postData.postList[postid]);
+    // postData = postData.postList[postid];
+    // this.data.postData = postData.postList[postid];
+    // console.log(postData);
+    this.setData({
+      postData: postData.postList[postid]
+    });
+    console.log(this.data.postData);
   },
 
   /**

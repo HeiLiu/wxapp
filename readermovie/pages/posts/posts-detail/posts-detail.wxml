@@ -1,14 +1,14 @@
 <!--pages/posts/posts-detail/posts-detail.wxml-->
 <view class="container">
-    <image class="head-image " src="{{headImgSrc}}"></image>
+    <image class="head-image " src="{{postData.headImgSrc}}"></image>
     <image class="music" src="/images/music/music-start.png"></image>
     <view class="author-date">
         <image class="avatar" src="{{postData.avatar}}"></image>
-        <text class="author">{{author}}</text>
+        <text class="author">{{postData.author}}</text>
         <text class="const-text">发表于</text>
-        <text class="date">{{dateTime}}</text>
+        <text class="date">{{postData.dateTime}}</text>
     </view>
-    <text class="title">{{title}}</text>
+    <text class="title">{{postData.title}}</text>
     <view class="tool">
         <view class="circle-img">
             <image class="share" src="/images/icon/share.png"></image>
@@ -16,5 +16,5 @@
         </view>
         <view class="line"></view>
     </view>
-    <text class="detail">{{detail}}</text>
+    <text class="detail">{{postData.detail}}</text>
 </view>

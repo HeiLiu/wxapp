@@ -118,3 +118,4 @@ var local_database = [{
 module.exports = {
     postList: local_database
 }
+// export default local_database;

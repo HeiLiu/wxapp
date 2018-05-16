@@ -1,5 +1,5 @@
 const postData = require('../../data/posts-data');
-// console.log(postData);
+console.log(postData);
 Page({
 
   /**
@@ -24,6 +24,7 @@ Page({
     // console.log(e.currentTarget.dataset.postid);
     const postid = e.currentTarget.dataset.postid;
     wx.navigateTo({
+      // 用模板字符串对url进行处理
       url:`posts-detail/posts-detail?id=${postid}`
     });
   }
