@@ -1,7 +1,7 @@
 // pages/posts/posts-detail/posts-detail.js
 // 引入外部js的两种方式
 // var postData = require('../../../data/posts-data');
-import postData from '../../../data/posts-data';
+import postsData from '../../../data/posts-data';
 // console.log(postData);
 Page({
 
@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isPlayingMusic:false
+    isPlayingMusic: false
   },
 
   /**
@@ -20,10 +20,10 @@ Page({
     this.data.currentPostId = postid;
     // 如果在onload方法中，不是异步的去执行一个数据绑定，则不需要使用this.setData方法
     // 只需要对this.data赋值
-    // this.data.postData = postData.postList[postid];
-
+    var postData = postsData.postList[postid]
+    console.log(postData);
     this.setData({
-      postData: postData.postList[postid]
+      postData
     });
     // console.log(this.data.postData);
     // let postCollected = {
@@ -44,6 +44,19 @@ Page({
       postsCollected[postid] = false;
       wx.setStorageSync('posts_collected', postsCollected);
     }
+    var that = this;
+    wx.onBackgroundAudioPlay(function(){
+      // this的绑定改变
+      console.log(this);
+      that.setData({
+        isPlayingMusic:true
+      })
+    });
+    wx.onBackgroundAudioPause(function(){
+      that.setData({
+        isPlayingMusic:false
+      })
+    })
   },
   // 收藏按钮 每次点击都是进行状态的切换 做取反操作
   onCollectionTap(event) {
@@ -68,7 +81,7 @@ Page({
     })
   },
   // 同步
-  getPostsCollectedSyc(event){
+  getPostsCollectedSyc(event) {
     var postsCollected = wx.getStorageSync('posts_collected');
     var postCollected = postsCollected[this.data.currentPostId];
     // // 收藏状态切换
@@ -137,35 +150,36 @@ Page({
       duration: 1000
     });
   },
-  onMusicTap:function(){
+  onMusicTap: function () {
     let currentPostId = this.data.currentPostId;
-    let postData = postData.postList[currentPostId];
+    // bug
+    let postData = postsData.postList[currentPostId];
     let isPlayingMusic = this.data.isPlayingMusic;
-    if(isPlayingMusic){
+    if (isPlayingMusic) {
       wx.pauseBackgroundAudio();
       this.setData({
-        isPlayingMusic : false
+        isPlayingMusic: false
       })
-    }else{
+    } else {
       wx.playBackgroundAudio({
-        dataUrl:'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46',
-        title:postData.music.title,
-        coverImg:''
+        dataUrl: postData.music.url,
+        title: postData.music.title,
+        coverImg: postData.music.coverImg
       })
       this.setData({
-        isPlayingMusic : true
+        isPlayingMusic: true
       })
     }
   },
-  onShareAppMessage(){
+  onShareAppMessage() {
     // 居然没有用
     return {
-      title:'今晚打老虎',
-      path:`/pages/index/index`,
-      success:function(res){
+      title: '今晚打老虎',
+      path: `/pages/index/index`,
+      success: function (res) {
 
       },
-      fail:function(res){
+      fail: function (res) {
 
       }
     }
