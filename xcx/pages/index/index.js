@@ -67,7 +67,7 @@ Page({
     this.requestArticle();
   },
   showDetail(e){
-    let dataset = e.currentTarget.dataset;
+    let dataset = e.currentTarget.article;
     console.log(e);
     let item = dataset && dataset.item;
     let contentId = item.contentId || 0;
