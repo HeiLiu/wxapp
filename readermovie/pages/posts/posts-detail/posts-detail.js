@@ -3,19 +3,14 @@
 // var postData = require('../../../data/posts-data');
 import postsData from '../../../data/posts-data';
 // console.log(postData);
+var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     isPlayingMusic: false
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  //  * 生命周期函数--监听页面加载
   onLoad: function (options) {
+
     var postid = options.id;
     this.data.currentPostId = postid;
     // 如果在onload方法中，不是异步的去执行一个数据绑定，则不需要使用this.setData方法
@@ -44,18 +39,30 @@ Page({
       postsCollected[postid] = false;
       wx.setStorageSync('posts_collected', postsCollected);
     }
+    if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicId === postid) {
+      this.setData({
+        isPlayingMusic: true
+      })
+    }
+    this.setMusicMonitor();
+  },
+  setMusicMonitor() {
     var that = this;
-    wx.onBackgroundAudioPlay(function(){
+    wx.onBackgroundAudioPlay(function () {
       // this的绑定改变
-      console.log(this);
+      // console.log(this);
       that.setData({
-        isPlayingMusic:true
+        isPlayingMusic: true
       })
+      app.globalData.g_isPlayingMusic = true;
+      // app.globalData.g_currentMusicId = postid;
     });
-    wx.onBackgroundAudioPause(function(){
+    wx.onBackgroundAudioPause(function () {
       that.setData({
-        isPlayingMusic:false
+        isPlayingMusic: false
       })
+      app.globalData.g_isPlayingMusic = false;
+      app.globalData.g_currentMusicId = null;
     })
   },
   // 收藏按钮 每次点击都是进行状态的切换 做取反操作
@@ -172,7 +179,6 @@ Page({
     }
   },
   onShareAppMessage() {
-    // 居然没有用
     return {
       title: '今晚打老虎',
       path: `/pages/index/index`,
