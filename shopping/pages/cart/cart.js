@@ -57,12 +57,7 @@ Page({
       if (carts[i].selected) {
         total += carts[i].num * carts[i].price;
       }
-      if (!carts[i].selected) {
-        // 在商品列表中取消一项就取消全选状态
-        this.setData({
-          selectAllStatus: false
-        })
-      }
+
       this.setData({
         totalPrice: total.toFixed(2)
       })
@@ -74,6 +69,18 @@ Page({
     const carts = this.data.carts
     let selected = carts[index].selected
     carts[index].selected = !selected
+    for(let i =0;i<carts.length;i++){
+      if (!carts[i].selected) {
+        // 在商品列表中取消一项就取消全选状态
+        this.setData({
+          selectAllStatus: false
+        })
+      }else{
+        this.setData({
+          selectAllStatus: true
+        })
+      }
+    }
 
     // console.log(carts[index].selected)
     this.setData({
