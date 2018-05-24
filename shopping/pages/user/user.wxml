@@ -1,2 +1,30 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<view class="main">
+    <!-- 头像太大 技巧 三个元素，头像 名字 关于 -->
+    <view class="header">
+        <open-data class="thumb" type="userAvatarUrl"></open-data>
+        <open-data class="nickname" lang="zh_CN" type="userNickName"></open-data>
+        <tetx class="about">關於我們</tetx>
+    </view>
+</view>
+<view class="container">
+    <view class="container-in">
+        <navigator url="./address/address">
+            <view class="weui-cell address">
+                <text>地址管理</text>
+            </view>
+        </navigator>
+        <view wx:if="{{userInfo}}" class="cell__bd">
+            <view class="weui-cell">
+                {{userInfo.name}}
+            </view>
+            <view class="weui-cell">
+                {{userInfo.tel}}
+            </view>
+            <view class="weui-cell">
+                {{userInfo.addr}}
+            </view>
+        </view>
+    </view>
+
+</view>

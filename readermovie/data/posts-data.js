@@ -13,7 +13,7 @@ var local_database = [{
         postId: 0,
         music: {
             url: "http://mp3.qqmusic.cc/yq/107710806.mp3",
-            title: "春风十里-鹿先生乐队",
+            title: "春风十里-鹿先森乐队",
             coverImg: "http://y.gtimg.cn/music/photo_new/T002R300x300M000004Pr20l0ALlST.jpg?max_age=2592000"
         }
     },

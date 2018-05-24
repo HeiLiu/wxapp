@@ -1,1 +1,28 @@
-/* pages/vehicles/show.wxss */
+.container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.section{
+    width: 100%;
+}
+.carImg{
+    height: 38.2vh;
+    width: 100%;
+}
+.header{
+    position: absolute;
+    top: 30vh;
+    left: 20rpx;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, .5);
+}
+.header .title{
+    font-size: 36rpx;
+}
+.header .subTitle{
+    font-size: 26rpx;
+}

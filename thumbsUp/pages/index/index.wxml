@@ -1,6 +1,6 @@
 <view class="cell">
   <view class="cell__bd">
-    <textarea style="height:6em;" value="{{entity.content}}" class="textarea" placeholder="这一刻的想法" bindinput="onInputContent">
+    <textarea style="height:6em;" bindinput="onInputContent" value="{{entity.content}}" class="textarea" placeholder="这一刻的想法">
     </textarea>
   </view>
 </view>
@@ -24,18 +24,18 @@
 <!-- </view> -->
 <view class="title">设置</view>
 <view class="cells cells_after-title">
-    <view class="section section_gap">
-        <text class="section__title">点赞数量</text>
-        <view class="body-view">
-            <slider bindchange="slider1change" left-icon="cancel" right-icon="success_no_circle"/>
-        </view>
-    </view>
-    
+  <text class="thumbNum">点赞数量:</text>
+  <slider bindchange="sliderChange" min="22" max="100" show-value blockSize="15"/>
   <view class="cell cell_switch">
-    <view class="cell__bd">发布</view>
+    <image src="../../assets/images/icon/comments.png"></image>
+    <view class="cell__bd">显示评论</view>
     <view class="cell__ft">
       <switch bindchange="onChangeStatus" checked="{{entity.status == 'publish'}}" />
     </view>
+  </view>
+  <view class="cell address">
+    <image src="../../assets/images/icon/address.png"></image>
+    <view class="cell__bd">显示位置</view>
   </view>
 </view>
 

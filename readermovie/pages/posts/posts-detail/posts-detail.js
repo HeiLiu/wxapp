@@ -55,7 +55,7 @@ Page({
         isPlayingMusic: true
       })
       app.globalData.g_isPlayingMusic = true;
-      // app.globalData.g_currentMusicId = postid;
+      app.globalData.g_currentMusicId = that.data.currentPostId;
     });
     wx.onBackgroundAudioPause(function () {
       that.setData({

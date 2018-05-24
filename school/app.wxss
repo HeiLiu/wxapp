@@ -1,0 +1,9 @@
+@import "./weui.wxss";
+.IMG{
+    width: 300rpx;
+    height: 300rpx;
+}
+.yue{
+    font-size: 30pt;
+    color: black;
+}

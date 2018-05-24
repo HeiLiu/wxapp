@@ -8,10 +8,11 @@
         <image class="post-image" src="{{imgSrc}}"></image>
         <text class="post-content">{{content}}</text>
         <view class="post-like">
-            <image class="post-like-image" src="/images/icon/chat1.png"></image>
-            <text class="post-like-font">{{collection}}</text>
-            <image class="post-like-image" src="/images/icon/view.png"></image>
-            <text class="post-like-font">{{reading}}</text>
-        </view>
+        <!-- 在模板中最好是使用绝对路径，这样就可以避免在别处应用时加载路径不正确的问题 -->
+        <image class="post-like-image" src="/images/icon/chat1.png"></image>
+        <text class="post-like-font">{{collection}}</text>
+        <image class="post-like-image" src="/images/icon/view.png"></image>
+        <text class="post-like-font">{{reading}}</text>
+    </view>
     </view>
 </template>

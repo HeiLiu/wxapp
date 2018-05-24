@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/categories/categories",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "enablePullDownfresh": true,
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

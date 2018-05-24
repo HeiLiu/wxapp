@@ -1,2 +1,29 @@
-<!--pages/vehicles/show.wxml-->
-<text>pages/vehicles/show.wxml</text>
+<view class="container">
+    <view class="section">
+        <image class="carImg" src="https://resources.ninghao.net/landrover/range-rover-small.jpg"></image>
+        <view class="header">
+            <text class="title">揽胜星脉</text>
+            <text class="title">range rover velar</text>
+            <view class="price">
+                <text class="rmb">RMB</text>
+                <text class="num">688.000</text>
+            </view>
+        </view>
+    </view>
+    <view class="desription">
+        <view class="item">
+            <text class="item_header">二氧化碳排放</text>
+            <text class="itrm_num">173</text>
+            <text class="danwei">克/公里</text>
+        </view>
+        <view class="item">
+            <text class="item_header">综合燃油</text>
+            <text class="itrm_num">173</text>
+            <text class="danwei">升/百公里</text>
+        </view>
+    </view>
+    <view class="content">
+        <text class="content_title">路虎精湛、强大的中级SUV</text>
+        <button class="testBtn">预约试驾</button>
+    </view>
+</view>

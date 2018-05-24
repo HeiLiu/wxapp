@@ -1,14 +1,15 @@
 {
   "pages": [
-    "pages/cart/cart",
+    "pages/user/user",
     "pages/index/index",
     "pages/logs/logs",
     "pages/category/category",
-    "pages/user/user"
+    "pages/cart/cart",
+    "pages/user/address/address"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#AB956D",
     "navigationBarTitleText": "网易严选",
     "navigationBarTextStyle": "black"
   },

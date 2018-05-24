@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/vehicles/show",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/stories/stories",
-    "pages/vehicles/show"
+    "pages/stories/stories"
   ],
   "window": {
     "backgroundTextStyle": "light",
