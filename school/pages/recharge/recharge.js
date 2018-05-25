@@ -1,11 +1,17 @@
-// pages/electric/electric.js
+// pages/recharge/recharge.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    yue:45.53
+    items:[
+        {name: '￥50', value: '￥50'},
+        {name: '￥150', value: '￥150', checked: 'true'},
+        {name: '￥100', value: '￥100'},
+        {name: '￥200', value: '￥200'},
+        {name: '￥250', value: '￥250'}
+      ]
   },
 
   /**
@@ -14,12 +20,10 @@ Page({
   onLoad: function (options) {
   
   },
-  recharge(){
-    wx.navigateTo({
-      url:"../order/order"
-    })
+  radioChange(e){
+    console.log(e)
   },
-  /**
+    /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {

@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/user/user",
     "pages/index/index",
+    "pages/record/record",
+    "pages/order/order",
+    "pages/recharge/recharge",
+    "pages/user/user",
     "pages/logs/logs",
     "pages/lessons/lessons",
     "pages/card/card",

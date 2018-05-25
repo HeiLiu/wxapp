@@ -1,11 +1,11 @@
-// pages/electric/electric.js
+// pages/record/record.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    yue:45.53
+    startDate:'2018-05-25'
   },
 
   /**
@@ -14,10 +14,20 @@ Page({
   onLoad: function (options) {
   
   },
-  recharge(){
-    wx.navigateTo({
-      url:"../order/order"
-    })
+  bindDateChange(e){
+    console.log(e.detail.value);
+    const type = e.currentTarget.dataset.type;
+    if(type == 'startPicker'){
+      this.setData({
+        startDate:e.detail.value,
+        endPickerStart:e.detail.value
+      })
+    }else{
+      this.setData({
+        endDate:e.detail.value,
+        
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,0 +1,22 @@
+<!--pages/recharge/recharge.wxml-->
+<view class="weui-cells">
+    <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="/pages/card/card">
+        <view class="weui-cell__hd">
+                默认寝室
+        </view>
+        <view class="weui-cell__bd"></view>
+        <view class="weui-cell__ft  weui-cell__ft_in-access">932</view>
+    </navigator>
+    <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+            </label>
+        </radio-group>
+    </view>
+</view>
+<view class="weui-msg__opr-area">
+    <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" bindtap="recharge" disabled>购买</button>
+    </view>
+</view>
